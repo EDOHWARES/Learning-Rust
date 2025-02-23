@@ -150,7 +150,6 @@
 //     println!("The city at index {index} is: {}", countries[index]);
 // }
 
-
 // fn main() {
 //     println!("Main function.");
 //     another_function(44, 'x');
@@ -172,3 +171,196 @@
 // fn sum_diff(num1: i32, num2: i32) -> (i32, i32) {
 //     return (num1 + num2, num1 - num2)
 // }
+
+// BASIC CONTROL FLOW IN RUST
+// If expressions
+// Match
+// Loop expressions
+// While expressions
+// For expressions
+
+// fn main() {
+//    let condition = true;
+
+//    let number = if condition {
+//     5
+//    } else {
+//     6
+//    };
+
+//    println!("The value of number is {number}")
+// }
+
+// Nested if expressions
+// fn main() {
+//     let num = 9;
+
+//     if num % 2 == 0 {
+//         println!("{} is even", num)
+//     } else {
+//         println!("{} is odd", num);
+
+//         if num > 10 {
+//             println!("{} is also greater than 10", num);
+//         } else {
+//             println!("{} is not greater than 10", num);
+//         }
+//     }
+//  }
+
+// using && and || operators
+// fn main() {
+//     let a = 10;
+//     let b = 5;
+//     let c = 4;
+
+//     if a > b && b > c {
+//         println!("a is greater than be and b is greater than c");
+//     } else {
+//         println!("condition with && is not met");
+//     };
+
+//     if a > b || b > c {
+//         println!("At least one condition with || is met");
+//     } else {
+//         println!{"The condition with || is not met"};
+//     };
+//  }
+
+// fn main() {
+//     enum Coin {
+//         Penny,
+//         Nickel,
+//         Dime,
+//         Quarter,
+//     }
+
+//     fn value_inc_cents(coin: Coin) -> u8 {
+//         match coin {
+//             Coin::Penny => 1,
+//             Coin::Nickel => 5,
+//             Coin::Dime => 10,
+//             Coin::Quarter => 25,
+//         }
+//     }
+
+//     let coin = Coin::Penny;
+
+//     println!("Value of coin: {}", value_inc_cents(coin));
+//  }
+
+// fn main() {
+//     enum TrafficLight {
+//         Red,
+//         Yellow,
+//         Green,
+//     }
+
+//     let light = TrafficLight::Red;
+
+//     fn func(light: TrafficLight) -> String {
+//         match light {
+//             TrafficLight::Red => String::from("Stop"),
+//             TrafficLight::Yellow => String::from("Slow down"),
+//             TrafficLight::Green => String::from("Go"),
+//         }
+//     }
+
+//     println!("The light is: {}", func(light));
+//  }
+
+// Loop
+//  fn main() {
+//     let mut counter = 0;
+
+//     let result = loop {
+//         println!("counter is {} now", counter);
+//         counter += 1;
+
+//         if counter == 10 {
+//             break counter * 2;
+//         }
+//     };
+
+//     println!{"The result is: {}", result};
+//  }
+
+// While loop
+// fn main() {
+//     let mut count = 20;
+
+//     while count != 0 {
+//         println!("{}!", count);
+
+//         count -= 1;
+
+//         //wait for 1 second
+//         std::thread::sleep(std::time::Duration::from_secs(1));
+//     };
+//  }
+
+// For loop
+// fn main() {
+//     let a = [1, 2, 3, 4, 5];
+
+//     for element in a.iter() {
+//         println!("The value is: {}", element);
+//     }
+
+//     let s = "Hello world!";
+
+//     for element in s.chars() {
+//         println!("The value is: {}", element);
+//     }
+
+//     for number in 1..10 {
+//         println!("The number is: {}", number);
+//     }
+//  }
+
+// fn main() {
+//     for i in 1..101 {
+//         if i%3 == 0 && i%5 == 0 {
+//             println!("FizzBuzz");
+//         } else if i%3 == 0 {
+//             println!("Fizz");
+//         } else if i%5 == 0 {
+//             println!("Buzz");
+//         } else {
+//             println!("{}", i);
+//         }
+//     }
+// }
+
+// fn main() {
+//     for i in 1..101 {
+//         if i % 3 == 0 {
+//             if i % 5 == 0 {
+//                 println!("FizzBuzz");
+//             } else {
+//                 println!("Fizz");
+//             }
+//         } else if i % 5 == 0 {
+//             println!("Buzz");
+//         } else {
+//             println!("{}", i);
+//         }
+//     }
+// }
+
+
+// fn main() {
+//     let mut s = String::from("Hello");
+
+//     s.push_str(", world!");
+
+//     println!("{}", s);
+// }
+
+fn main() {
+   let s1 = String::from("Hello world");
+   let s2 = s1.clone();
+
+   println!("{s2}");
+   println!("{s1}");
+}
