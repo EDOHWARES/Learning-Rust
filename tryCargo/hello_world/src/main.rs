@@ -357,10 +357,159 @@
 //     println!("{}", s);
 // }
 
-fn main() {
-   let s1 = String::from("Hello world");
-   let s2 = s1.clone();
+// fn main() {
+//    let s1 = String::from("Hello world");
+//    let s2 = s1.clone();
 
-   println!("{s2}");
-   println!("{s1}");
+//    println!("{s2}");
+//    println!("{s1}");
+// }
+
+// fn main() {
+//    let mut count = 0;
+
+//    'counting_up: loop {
+//         println!("count = {count}");
+//         let mut  remaining = 10;
+
+//         loop {
+//              println!("remaining = {remaining}");
+//              if remaining == 9 {
+//                break;
+//              }
+//              if count == 2 {
+//                break 'counting_up;
+//              }
+//              remaining -= 1;
+//         }
+//         count += 1;
+//    }
+
+//    println!("End count = {count}");
+// }
+
+// While loop
+// fn main() {
+//   let mut count = 3;
+
+//   while count !=0 {
+//       println!("{count}");
+
+//       count -= 1;
+//   }
+
+//   println!("Lift off!!!");
+// }
+
+// // Loop Loop (Infinit Loop)
+// fn main() {
+//    let mut count = 3;
+//    loop {
+//       println!("{count}");
+
+//       if count == 1 {
+//          break;
+//       }
+
+//       count -= 1;
+//    }
+
+//    println!("Lift off!!!");
+//  }
+
+//  fn main() {
+//    for number in (1..=3).rev() {
+//       println!("{number}");
+//    }
+//    println!("Lift off!!!");
+//  }
+
+// fn main() {
+//    let i = 5;
+//    call_int(i);
+//    println!("AFTER CALLING THE FUNCTION, the value of i: {}", i);
+
+//    let s = String::from("Hello");
+//    call_string(&s);
+//    println!("AFTER CALLING THE FUNCTION, the value of s: {}", s);
+// }
+
+// // call int function
+// fn call_int(i: i32) {
+//    println!("call_int i: {}", i);
+// }
+
+// // call string function
+// fn call_string(s: String) {
+//    println!("call_string s: {}", s);
+// }
+
+// fn main() {
+//    let s1 = give_ownership();
+//    println!("s1: {}", s1);
+
+//    let s2 = String::from("Hello from main");
+
+//    let s3 = take_and_give_ownership(s2);
+//    println!("s2: {}", s2);
+//    println!("s3: {}", s3);
+// }
+
+// // function to give ownership of a string to another function
+// fn give_ownership() -> String {
+//    let some_string = String::from("Hello from give ownership");
+//    some_string
+// }
+
+// // function to take ownership of a string
+// fn take_and_give_ownership(some_string: String) -> String {
+//    some_string
+// }
+
+// fn main() {
+//    let s1 = String::from("Hello");
+
+//    let len = calculate_length(&s1);
+
+//    println!("The length of {} is {}", s1, len);
+// }
+
+// // calculate the length of a string
+// fn calculate_length(s: &String) -> usize {
+//    let length = s.len();
+//    length
+// }
+
+
+// fn main() {
+//    let mut s = String::from("Hello");
+//    change_borrowed_value(&mut s);
+//    println!("S: {}", s);
+// }
+
+// // fn to change borrowed value
+// fn change_borrowed_value(s: &mut String) {
+//    s.push_str(", world");
+// }
+
+// fn main() {
+//    let mut s = String::from("Hello");
+
+//    let s1 = &mut s;
+//    let s2 = &mut s;
+
+//    println!("{}", s1);
+// }
+
+fn main() {
+   let mut s = String::from("Hello");
+
+   {
+      let s1 = &mut s;
+      s1.push_str(", world");
+   }
+
+   let s2 = &mut s;
+   s2.push_str("!!!");
+   println!("{}", s);
 }
