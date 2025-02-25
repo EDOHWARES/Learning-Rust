@@ -501,15 +501,187 @@
 //    println!("{}", s1);
 // }
 
+// fn main() {
+//    let mut s = String::from("Hello");
+
+//    {
+//       let s1 = &mut s;
+//       s1.push_str(", world");
+//    }
+
+//    let s2 = &mut s;
+//    s2.push_str("!!!");
+//    println!("{}", s);
+// }
+
+// fn main() {
+
+//    // first example: slice of an array of chars
+//    let arr: [char; 5] = ['a', 'b', 'c', 'd', 'e'];
+//    let slice: &[char] = &arr[1..3];
+//    println!("{:?}", slice);
+
+//    // second example: slice of a vector of integers
+//    let vec: Vec<i32> = vec![10, 20, 30, 40, 50];
+//    let slice: &[i32] = &vec[3..4];
+//    println!("{:?}", slice);
+
+//    // third example: slices for strings
+//    let s: String = String::from("Hello world");
+//    let hello: &str = &s[0..5];
+//    let world: &str = &s[6..=10];
+//    println!("{:?}", hello);
+//    println!("{:?}", world);
+
+// }
+
+// fn main() {
+//    let s = String::from("Francesco");
+
+//    // shortcut for initial index
+//    let slice = &s[0..3];
+//    println!("{}", slice);
+//    let slice = &s[..3];
+//    println!("{}", slice);
+
+//    // shortcut for final index
+//    let len = s.len();
+//    let slice: &str = &s[4..len];
+//    println!("{}", slice);
+//    let slice: &str = &s[4..];
+//    println!("{}", slice);
+
+//    // shortcut for both initial and final
+//    let slice: &str = &s[..];
+//    println!("{}", slice);
+//    let slice: &str = &s[0..len];
+//    println!("{}", slice);
+// }
+
+// fn main() {
+//    let mut s = String::from("Hellooo World");
+//    let word = first_word(&s);
+
+//    println!("The s is = {}", s);
+//    println!("The first word is = {} long", word);
+
+//    // problem 
+//    s.clear();
+//    println!("the s is = {}", s);
+//    println!("the first word is = {}", word);
+// }
+
+// fn first_word(s: &String) -> usize {
+//    let bytes = s.as_bytes(); // Convert string to bytes
+
+//    // Iterate through the bytes and return the index of the first space
+//    for (i, &item) in bytes.iter().enumerate() {
+//       if item == b' ' {
+//          return  i;
+//       }
+//    }
+
+//    // if no space is found, return the length of the string
+//    s.len()
+// }
+
+
+// Struct in RUST
+// struct with name, email, is_active, age
+// #[derive(Debug)]
+// struct User {
+//    name: String,
+//    email: String,
+//    is_active: bool,
+//    age: u8
+// }
+// fn main() {
+//    let user1 = User {
+//       name: String::from("Edoh Emmanuel"),
+//       email: String::from("edoh@gmail.com"),
+//       is_active: false,
+//       age: 20
+//    };
+
+//    // create a new instance from another instance
+//    let user2 = User {
+//       name: String::from("Ayomide Adeniran"),
+//       email: user1.email.clone(),
+//       is_active: user1.is_active,
+//       age: user1.age
+//    };
+
+//    println!("{:?}", user1);
+//    println!("{:?}", user2);
+
+// }
+
+// // create a function to build a user
+// fn buid_user(name: String, email: String, is_active: bool, age: u8) -> User {
+//    User {
+//       name,
+//       email,
+//       is_active,
+//       age
+//    }
+// }
+
+//tuple structs
+// struct  Color(i32, i32, i32);
+// struct  Point(i32, i32, i32);
+
+// fn  main() {
+//    let black = Color(0, 0, 0);
+//    let origin = Point(0, 0, 0);
+
+//    println!("black: {}, {}, {}", black.0, black.1, black.2);
+//    println!("origin: {}, {}, {}", origin.0, origin.1, origin.2);
+// }
+
+//unit-like struct
+// #[derive(Debug)]
+// struct User;
+
+// fn main() {
+//    let user1 = User;
+//    print!("{:?} \n", user1)
+// }
+
+// fn main() {
+//     let width: i32 = 50;
+//     let height: i32 = 30;
+
+//     println!("The area is {}", area(width, height));
+// }
+
+// fn area(w: i32, h: i32) -> i32 {
+//    w * h
+// }
+
+// fn main() {
+//    let rect1: (i32, i32) = (30, 50);
+
+//    println!("The area is {}", area(rect1));
+// }
+
+// fn area(sides: (i32, i32)) -> i32 {
+//    sides.0 * sides.1
+// }
+
+struct  Rectangle {
+   width: i32,
+   height: i32
+}
+
 fn main() {
-   let mut s = String::from("Hello");
+   let rect1 = Rectangle {
+      width: 30,
+      height: 50
+   };
 
-   {
-      let s1 = &mut s;
-      s1.push_str(", world");
-   }
+   println!("The area is: {}", area(rect1));
+}
 
-   let s2 = &mut s;
-   s2.push_str("!!!");
-   println!("{}", s);
+fn area(rectangele: Rectangle) -> i32{
+   rectangele.width * rectangele.height
 }
