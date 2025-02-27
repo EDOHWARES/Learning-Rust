@@ -348,7 +348,6 @@
 //     }
 // }
 
-
 // fn main() {
 //     let mut s = String::from("Hello");
 
@@ -480,7 +479,6 @@
 //    length
 // }
 
-
 // fn main() {
 //    let mut s = String::from("Hello");
 //    change_borrowed_value(&mut s);
@@ -565,7 +563,7 @@
 //    println!("The s is = {}", s);
 //    println!("The first word is = {} long", word);
 
-//    // problem 
+//    // problem
 //    s.clear();
 //    println!("the s is = {}", s);
 //    println!("the first word is = {}", word);
@@ -584,7 +582,6 @@
 //    // if no space is found, return the length of the string
 //    s.len()
 // }
-
 
 // Struct in RUST
 // struct with name, email, is_active, age
@@ -668,20 +665,286 @@
 //    sides.0 * sides.1
 // }
 
-struct  Rectangle {
-   width: i32,
-   height: i32
-}
+// struct  Rectangle {
+//    width: i32,
+//    height: i32
+// }
+
+// fn main() {
+//    let rect1 = Rectangle {
+//       width: 30,
+//       height: 50
+//    };
+
+//    println!("The area is: {}", area(rect1));
+// }
+
+// fn area(rectangele: Rectangle) -> i32{
+//    rectangele.width * rectangele.height
+// }
+
+// fn main() {
+//     let s = String::from("Prados World");
+
+//    let first_word = first_word(&s);
+
+//    println!("{}", first_word);
+
+// }
+
+// fn first_word(s: &str) -> &str {
+//    let bytes = s.as_bytes();
+
+//    for (i, &item) in bytes.iter().enumerate() {
+//       if item == b' ' {
+//          return &s[..i];
+//       }
+//    }
+
+//    &s[..]
+// }
+
+// #[derive(Debug)]
+// struct Rectangle {
+//     width: u32,
+//     height: u32,
+// }
+
+// impl Rectangle {
+//     fn area(&self) -> u32 {
+//         self.width * self.height
+//     }
+
+//     // methods with the same name as a field
+//     fn width(&self) -> bool {
+//       self.width > 0
+//     }
+
+//     // getter method of the height
+//     fn height(&self) -> u32 {
+//       self.height
+//     }
+
+//     // check if a rectangle can hold another
+//     fn can_hold(&self, other: &Rectangle) -> bool {
+//       self.width > other.width && self.height > other.height ||
+//       self.width > other.height && self.height > other.width
+//     }
+
+//     // associated function to define a square
+//     fn square(size: u32) -> Self {
+//       Self {
+//          width: size,
+//          height: size
+//       }
+//     }
+// }
+
+// fn main() {
+//    let square: Rectangle = Rectangle::square(10);
+
+//    println!("The area of the square is: {}", square.area());
+//    println!("{:?}", square);
+// }
+
+// #[derive(Debug)]
+// enum IpAddrKind {
+//    v4,
+//    v6,
+// }
+
+// fn main() {
+//     let four = IpAddrKind::v4;
+//     let six = IpAddrKind::v6;
+
+//     route(four);
+//     route(six);
+
+// }
+
+// fn route(ip_type: IpAddrKind) {
+//     println!("Route called with {:?}", ip_type);
+// }
+
+// #[derive(Debug)]
+// enum TrafficLight {
+//    Red,
+//    Yellow,
+//    Green,
+// }
+
+// fn print_light(light: TrafficLight) {
+//    match light {
+//       TrafficLight::Red => println!("Stop"),
+//       TrafficLight::Yellow => println!("Slow down"),
+//       TrafficLight::Green => println!("Go"),
+//    }
+// }
+
+// fn main() {
+//    let current_light = TrafficLight::Green;
+//    print_light(current_light);
+// }
+
+// enum Message {
+//     Text(String),
+//     Number(i32),
+// }
+
+// fn show_message(msg: Message) {
+//    match msg {
+//       Message::Text(s) => println!("{}", s),
+//       Message::Number(s) => println!("{}", s),
+//    }
+// }
+
+// fn main() {
+//    let msgI = Message::Text(String::from("Hello"));
+//    let msgII = Message::Number(4);
+
+//    show_message(msgI);
+//    show_message(msgII);
+// }
+
+// #[derive(Debug)]
+// enum IpAddr {
+//    v4(u8, u8, u8, u8),
+//    v6(String),
+// }
+
+// fn main() {
+
+//    let home = IpAddr::v4(127, 0, 0, 1);
+//    let r#loop = IpAddr::v6(String::from("::1"));
+
+//    println!("{:?}", home);
+//    println!("{:?}", r#loop);
+// }
+
+// #[derive(Debug)]
+// enum IpAddr {
+//    v4(u8, u8, u8, u8),
+//    v6(String),
+// }
+
+// fn main() {
+
+//    let home: IpAddr = IpAddr::v4(127, 0, 0, 1);
+//    println!("{:?}", home);
+
+//    let loopback: IpAddr = IpAddr::v6(String::from("::1"));
+//    println!("{:?}", loopback);
+
+// }
+
+// #[derive(Debug)]
+// enum Message {
+//    Quit,
+//    Move {x: i32, y: i32},
+//    Write (String),
+//    ChangeColor (i32, i32, i32),
+// }
+
+// impl Message {
+//    fn call(&self) {
+//       println!("{:?}", self);
+//    }
+// }
+
+// fn main() {
+
+//    let m = Message::Write(String::from("Hello, world!"));
+//    let x = Message::Move { x: 3, y: 4 };
+//    let y = Message::ChangeColor(0, 0, 0);
+//    let z = Message::Quit;
+
+//    m.call();
+//    x.call();
+//    y.call();
+//    z.call();
+
+// }
+
+// enum Option<T> {
+//    Some(T),
+//    None,
+// }
+
+// fn main() {
+//    let x: i8 = 5;
+//    let y: Option<i8> = Some(4);
+
+//    //try to sum them
+//    let sum = x + y.unwrap();
+//    println!("Sum: {}", sum);
+// }
+
+// #[derive(Debug)]
+// enum Coin {
+//     Penny,
+//     Nickel,
+//     Dime,
+//     Quarter(Rarity),
+// }
+
+// #[derive(Debug)]
+// enum Rarity {
+//    Common, 
+//    Uncommon,
+//    Rare,
+//    Epic,
+//    Legendary,
+// }
+
+// fn value_in_cents(coin: Coin) -> u8 {
+//     match coin {
+//         Coin::Penny => {
+//             println!("Lucky you");
+//             1
+//         }
+//         Coin::Nickel => {
+//             println!("Lucky you");
+//             5
+//         }
+//         Coin::Dime => {
+//             println!("Lucky you");
+//             10
+//         }
+//         Coin::Quarter(rarity) => {
+//             println!("You got a {:?} quarter!", rarity);
+//             25
+//         }
+//     }
+// }
+
+// fn main() {
+//     let coin = Coin::Quarter(Rarity::Epic);
+//     println!("Value in cents: {}", value_in_cents(coin))
+// }
+
+// fn main() {
+//     fn plus_one(x: Option<i32>) -> Option<i32> {
+//         match x {
+//             None => None,
+//             Some(i) => Some(i + 1),
+//         }
+//     }
+
+//     let five = Some(5);
+//     let six = plus_one(five);
+//     println!("{:?}", six);
+// }
 
 fn main() {
-   let rect1 = Rectangle {
-      width: 30,
-      height: 50
-   };
+   let dice_roll = 9;
 
-   println!("The area is: {}", area(rect1));
-}
-
-fn area(rectangele: Rectangle) -> i32{
-   rectangele.width * rectangele.height
+   match dice_roll {
+       1 => println!("You rolled a one!"),
+       2 => println!("You rolled a two!"),
+       3 => println!("You rolled a three!"),
+       4 => println!("You rolled a four!"),
+       5 => println!("You rolled a five!"),
+       6 => println!("You rolled a six!"),
+       _ => println!("You rolled something else!"),
+   }
 }
