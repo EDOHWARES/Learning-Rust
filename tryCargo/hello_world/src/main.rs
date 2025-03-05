@@ -935,16 +935,219 @@
 //     println!("{:?}", six);
 // }
 
-fn main() {
-   let dice_roll = 9;
+// fn main() {
+//    let dice_roll = 9;
 
-   match dice_roll {
-       1 => println!("You rolled a one!"),
-       2 => println!("You rolled a two!"),
-       3 => println!("You rolled a three!"),
-       4 => println!("You rolled a four!"),
-       5 => println!("You rolled a five!"),
-       6 => println!("You rolled a six!"),
-       _ => println!("You rolled something else!"),
-   }
+//    match dice_roll {
+//        1 => println!("You rolled a one!"),
+//        2 => println!("You rolled a two!"),
+//        3 => println!("You rolled a three!"),
+//        4 => println!("You rolled a four!"),
+//        5 => println!("You rolled a five!"),
+//        6 => println!("You rolled a six!"),
+//        _ => println!("You rolled something else!"),
+//    }
+// }
+
+
+
+
+
+
+
+// fn main() {
+//    let config_max = Some(100);
+
+//    // match config_max {
+//    //     Some(max) => println!("The max is configured to be {}", max),
+//    //     _ => (),
+//    // }
+
+
+//    // use an if let statement to check if the value is Some
+//    if let Some(max) = config_max {
+//       println!("The max is configured to be {}", max)
+//    }
+
+// }
+
+// #[derive(Debug)]
+// struct  User {
+//    active: bool,
+//    username: String,
+//    email: String,
+//    sign_in_count: u8,
+// }
+
+// fn main() {
+//     let user1 = buid_user(String::from("edohemmanuel4real@gmail.com"), String::from("EDOHWARES"));
+
+//     println!("{:?}", user1);
+
+//     let user2 = User {
+//       email: String::from("user2@gmail.com"),
+//       ..user1
+//     };
+
+//     println!("{:?}", user2);
+//     println!("{:?}", user1);
+// }
+
+// fn buid_user(email: String, username: String) -> User {
+//    return User {
+//       active: true,
+//       username,
+//       email,
+//       sign_in_count: 1,
+//    }
+// }
+
+// fn main() {
+//     let width: usize = 30;
+//     let height: usize = 20;
+
+//     println!("{}", calculate_area(width, height));
+// }
+
+// fn calculate_area(width: usize, height: usize) -> usize{
+//    width * height
+// }
+
+// fn main() {
+//     let rect1: (usize, usize) = (50, 30);
+
+//     println!("{}", calculate_area(rect1));
+// }
+
+// fn calculate_area(dimension: (usize, usize)) -> usize {
+//    dimension.0 * dimension.1
+// }
+
+// #[derive(Debug)]
+// struct Rectangle {
+//    width: usize,
+//    height: usize,
+// }
+
+// impl Rectangle {
+//     fn area(&self) -> usize {
+//         self.width * self.height
+//     }
+
+//     fn width(&self) ->bool {
+//         self.width > 0
+//     }
+// }
+
+// fn main() {
+//    let scale: usize = 2;
+//    let rect1: Rectangle = Rectangle {
+//       width: dbg!(40 * &scale),
+//       height: 30,
+//    };
+
+//    println!("The area of rect1 is: {}", rect1.area());
+
+
+// }
+
+
+
+// main.rs
+// use std::collections::HashMap;
+// use rand::Rng;
+
+// fn main() {
+//     let mut map = HashMap::new();
+//     map.insert("key1", "value1");
+//     map.insert("key2", "value2");
+
+//     println!(
+//       "{:?}", map
+//     );
+
+//     let secret_number = rand::rng().random_range(1..=100);
+//     println!("{}", secret_number);
+// }
+
+// Collections are data structures that store multiple values.
+/* 
+They are stored on the heap,
+the data does not need to be known at compile time,
+and can grow or shring as the program runs.
+
+A Vector allow you to store a variable number of values next to each other
+*/
+
+use std::vec;
+
+fn main() {
+  // // create a vector
+  // let vec1: Vec<i32> = Vec::new();
+  // println!("{:?}", vec1);
+
+  // // create a vector with initial values
+  // let vec2 = vec![1, 2, 3, 4, 5];
+  // println!("{:?}", vec2);
+
+  // // update a vector
+  // let mut vec3: Vec<i32> = Vec::new();
+
+  // vec3.push(1);
+  // vec3.push(2);
+  // vec3.push(4);
+  // println!("{:?}", vec3);
+
+  // vec3.pop();
+  // println!("{:?}", vec3);
+
+  // accessing element in a vector
+  // 1. Reading elements
+  let vec4: Vec<char> = vec!['a', 'b', 'c', 'd', 'e'];
+
+
+  // using the square bracket method
+  // let fourth: char = vec4[4];
+
+  // using the get method
+  let fourth: Option<&char> = vec4.get(40);
+
+  match fourth {
+      Some(&fourth) => println!("The fourth value is: {}", fourth),
+      None => println!("The value doesn't exists...")
+  }
+
+  // iterating over the values in a vector
+  let vec5: Vec<i32> = vec![1, 2, 3, 4, 5];
+  for i in &vec5 {
+    println!("{}", i);
+  }
+
+  // iterating over mutable references
+  let mut vec6 = vec![10, 20, 30, 40, 50];
+  for i in &mut vec6 {
+    *i += 1;
+  };
+
+  println!("{:?}", vec6);
+
+  // store multiple types in a vector using enums
+  #[derive(Debug)]
+  #[allow(dead_code)]
+  enum SpreadSheetCell {
+    Int(i32),
+    Float(f64),
+    Text(String),
+  }
+
+  let row: Vec<SpreadSheetCell>= vec![
+    SpreadSheetCell::Int(3),
+    SpreadSheetCell::Float(10.12),
+    SpreadSheetCell::Text(String::from("Blue")),
+    SpreadSheetCell::Int(4),
+    SpreadSheetCell::Int(5)
+  ];
+
+  println!("{:?}", row);
+
 }
